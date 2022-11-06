@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Component
+} from 'react';
+import Tabela from './Tabela'
+//import api from './api'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends Component {
+  constructor() {
+    super()
+    this.state = ({
+      db: []
+    });
+    this.exibirFuncionarios();
+  }
+
+  exibirFuncionarios() {
+    fetch("http://localhost/api/autoucolaborador/src/Api/")
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          db: responseJson
+        })
+      });
+  }
+  render() {
+    return ( 
+    <div>
+      <h1> Listar Clientes </h1> 
+      <Tabela arrayFuncionarios={this.state.db} />
     </div>
-  );
+    )
+  }
 }
 
-export default App;
+export default App
