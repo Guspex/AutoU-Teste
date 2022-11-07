@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   exibirFuncionarios() {
-    fetch("http://localhost/api/autoucolaborador/src/Api/")
+    fetch("http://localhost/api/autoucolaborador/src/Api/",{mode: 'no-cors'})
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
