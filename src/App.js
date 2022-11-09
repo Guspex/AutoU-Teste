@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     return ( 
     <div>
-      <h1> Listar Clientes </h1> 
+      <h1> Tela de entrada </h1> 
       <Tabela arrayFuncionarios={this.state.db} />
     </div>
     )
